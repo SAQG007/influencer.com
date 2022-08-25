@@ -30,7 +30,7 @@
                 @endif
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Add New Quote</a>
+                    <a class="nav-link active" aria-current="page" href="{{ route('quote.add') }}">Add New Quote</a>
                 </li>
 
             </ul>
