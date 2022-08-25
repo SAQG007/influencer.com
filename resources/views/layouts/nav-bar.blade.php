@@ -27,11 +27,11 @@
 
                         </ul>
                     </li>
-                @endif
 
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('quote.add') }}">Add New Quote</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('quote.add') }}">Add New Quote</a>
+                    </li>
+                @endif
 
             </ul>
 {{--            <div>--}}
