@@ -18,7 +18,7 @@ class CreateQuotesTable extends Migration
             $table->string('quote', 100);
 
             // status can be active or inactive
-            $table->string('status', 15);
+            $table->string('status', 15)->default('active');
             $table->timestamps();
         });
     }
