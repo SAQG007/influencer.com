@@ -36,3 +36,7 @@
     @endforeach
 
 @endsection
+
+@section('pagination-area')
+    {{ $quotes->links() }}
+@endsection
