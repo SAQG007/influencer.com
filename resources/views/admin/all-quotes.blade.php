@@ -14,6 +14,7 @@
         <th>ID</th>
         <th>Quote</th>
         <th>Author</th>
+        <th>Status</th>
         <th>Creation Date</th>
         <th>Actions</th>
 
@@ -27,13 +28,14 @@
                 <td style="width: 20px">{{ $quote->id }}</td>
                 <td style="width: 50px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ $quote->quote }}</td>
                 <td style="width: 50px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ $quote->author }}</td>
+                <td style="width: 50px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ ucwords($quote->status) }}</td>
                 <td style="width: 50px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ $quote->created_at->format('d-M-Y') }}</td>
                 <td>
                     <div class="mr-2" style="display: inline-block">
                         @include('buttons.edit-button')
                     </div>
                     <div style="display: inline-block">
-                        @include('buttons.delete-button')
+                        @include('buttons.status-button')
                     </div>
                 </td>
             </tr>
