@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
         Route::POST('/add/quote', [QuoteController::class, 'store'])->name('quote.store');
 
         Route::GET('/quote/{id}/edit', [QuoteController::class, 'edit'])->name('quote.edit');
+        Route::POST('/quote/{id}/edit', [QuoteController::class, 'update'])->name('quote.update');
     });
 });
 
