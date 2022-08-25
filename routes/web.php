@@ -27,7 +27,9 @@ Route::GET('/', [RouteController::class, 'index'])->name('home');
 Route::GET('/dashboard', [RouteController::class, 'redirectToHome'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::GET('/add/quote', [QuoteController::class, 'create'])->name('quote.add');
+    Route::middleware('is.admin')->group(function () {
+        Route::GET('/add/quote', [QuoteController::class, 'create'])->name('quote.add');
+    });
 });
 
 
