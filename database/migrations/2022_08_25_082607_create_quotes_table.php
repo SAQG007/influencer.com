@@ -16,7 +16,7 @@ class CreateQuotesTable extends Migration
         Schema::create('quotes', function (Blueprint $table) {
             $table->id();
             $table->string('quote', 100);
-            $table->string('author', 50);
+            $table->string('author', 50)->nullable();
 
             // status can be active or inactive
             $table->string('status', 15)->default('active');
