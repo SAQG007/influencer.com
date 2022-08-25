@@ -8,6 +8,12 @@ use App\Models\Quote;
 
 class QuoteController extends Controller
 {
+    public function index()
+    {
+        $quotes = Quote::simplePaginate(10);
+        return view('admin.all-quotes')->with(['quotes' => $quotes]);
+    }
+
     public function create()
     {
         return view('influencer.add-new-quote');
@@ -30,5 +36,20 @@ class QuoteController extends Controller
         }
 
         return redirect()->back();
+    }
+
+    public function edit($id)
+    {
+        //
+    }
+
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    public function destroy($id)
+    {
+        //
     }
 }
