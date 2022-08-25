@@ -28,7 +28,8 @@ Route::GET('/dashboard', [RouteController::class, 'redirectToHome'])->name('dash
 
 Route::middleware('auth')->group(function () {
     Route::middleware('is.admin')->group(function () {
-        Route::GET('/add/quote', [QuoteController::class, 'create'])->name('quote.add');
+        Route::GET('/add/quote', [QuoteController::class, 'create'])->name('quote.create');
+        Route::POST('/add/quote', [QuoteController::class, 'store'])->name('quote.store');
     });
 });
 
