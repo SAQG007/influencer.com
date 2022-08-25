@@ -8,5 +8,6 @@
 @section('content')
 
     @include('layouts.nav-bar')
+    @include('influencer.index-message')
 
 @endsection
