@@ -28,9 +28,11 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('quote.create') }}">Add New Quote</a>
-                    </li>
+                    @if(Auth::user()->hasRole("Admin"))
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{ route('quote.create') }}">Add New Quote</a>
+                        </li>
+                    @endif
                 @endif
 
             </ul>
