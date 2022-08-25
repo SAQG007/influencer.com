@@ -16,7 +16,8 @@ class QuoteController extends Controller
 
     public function create()
     {
-        return view('influencer.add-new-quote');
+        $flag = "create";
+        return view('admin.upsert-quote')->with(['flag' => $flag]);
     }
 
     public function store(Request $request)
@@ -40,7 +41,13 @@ class QuoteController extends Controller
 
     public function edit($id)
     {
-        //
+        $quote = Quote::find($id);
+
+        if(User::verifyAdmin())
+        {
+            $flag = "edit";
+            return view('admin.upsert-quote')->with(['flag' => $flag]);
+        }
     }
 
     public function update(Request $request, $id)
