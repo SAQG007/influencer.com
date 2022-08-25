@@ -10,4 +10,9 @@ class RouteController extends Controller
     {
         return view('influencer.index');
     }
+
+    public function redirectToHome()
+    {
+        return redirect()->route('home');
+    }
 }
