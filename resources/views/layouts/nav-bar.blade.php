@@ -9,26 +9,32 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="width: 200px">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 {{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link active" aria-current="page" href="#">Home</a>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item">--}}
 {{--                    <a class="nav-link" href="#">Link</a>--}}
 {{--                </li>--}}
                 @if(Auth::check())
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ auth()->user()->name }}
+                            {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Action</a></li>
                             <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+
+                            @if(Auth::user()->hasRole("Admin"))
+                                <li><a class="dropdown-item" href="#">Add New User</a></li>
+                                <li><a class="dropdown-item" href="#">Subscribers List</a></li>
+                            @endif
+
                         </ul>
                     </li>
                 @endif
+
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Add New Quote</a>
+                </li>
+
             </ul>
-{{--            <div style="margin-right: 87%">--}}
+{{--            <div>--}}
 {{--                <ul class="navbar-nav me-auto mb-2 mb-lg-0">--}}
 {{--                    <li class="nav-item dropdown">--}}
 {{--                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">--}}
