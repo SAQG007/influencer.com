@@ -46,7 +46,7 @@ class QuoteController extends Controller
         if(User::verifyAdmin())
         {
             $flag = "edit";
-            return view('admin.upsert-quote')->with(['flag' => $flag]);
+            return view('admin.upsert-quote')->with(['flag' => $flag, 'quote' => $quote]);
         }
     }
 
@@ -55,8 +55,24 @@ class QuoteController extends Controller
         //
     }
 
-    public function destroy($id)
+    public function changeStatus($id)
     {
-        //
+        $quote = Quote::find($id);
+
+        if(User::verifyAdmin())
+        {
+            if($quote->status == "active")
+            {
+                $quote->status = "inactive";
+            }
+            else
+            {
+                $quote->status = "active";
+            }
+
+            $quote->save();
+        }
+
+        return redirect()->back();
     }
 }
