@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\Quotes;
+use App\Models\Quote;
 
 class QuoteController extends Controller
 {
@@ -16,15 +16,19 @@ class QuoteController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'quote' => 'required | max:100'
+            'quote' => 'required | max:100',
+            'author' => 'max:50'
         ]);
 
-        $quote = new Quotes();
+        $quote = new Quote();
         $quote->quote = $request->input('quote');
+        $quote->author = $request->input('author');
 
         if(User::verifyAdmin())
         {
             $quote->save();
         }
+
+        return redirect()->back();
     }
 }
