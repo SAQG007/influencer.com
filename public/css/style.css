@@ -1,61 +1,40 @@
 @font-face {
-    font-face-name: app_name_font;
+    font-face-name: app-name-font;
     src: url("public/fonts/app_name_font.ttf");
 }
 
-.swing {
-    -webkit-transform-origin: top center;
-    -ms-transform-origin: top center;
-    transform-origin: top center;
-    -webkit-animation-name: swing;
-    animation-name: swing;
+@font-face {
+    font-face-name: quote-font;
+    src: url("public/fonts/designer.otf");
+}
+
+.slideInRight {
+    -webkit-animation-name: slideInRight;
+    animation-name: slideInRight;
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
-@-webkit-keyframes swing {
-    20% {
-        -webkit-transform: rotate3d(0, 0, 1, 15deg);
-        transform: rotate3d(0, 0, 1, 15deg);
-    }
-    40% {
-        -webkit-transform: rotate3d(0, 0, 1, -10deg);
-        transform: rotate3d(0, 0, 1, -10deg);
-    }
-    60% {
-        -webkit-transform: rotate3d(0, 0, 1, 5deg);
-        transform: rotate3d(0, 0, 1, 5deg);
-    }
-    80% {
-        -webkit-transform: rotate3d(0, 0, 1, -5deg);
-        transform: rotate3d(0, 0, 1, -5deg);
+@-webkit-keyframes slideInRight {
+    0% {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+        visibility: visible;
     }
     100% {
-        -webkit-transform: rotate3d(0, 0, 1, 0deg);
-        transform: rotate3d(0, 0, 1, 0deg);
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
     }
 }
-@keyframes swing {
-    20% {
-        -webkit-transform: rotate3d(0, 0, 1, 15deg);
-        transform: rotate3d(0, 0, 1, 15deg);
-    }
-    40% {
-        -webkit-transform: rotate3d(0, 0, 1, -10deg);
-        transform: rotate3d(0, 0, 1, -10deg);
-    }
-    60% {
-        -webkit-transform: rotate3d(0, 0, 1, 5deg);
-        transform: rotate3d(0, 0, 1, 5deg);
-    }
-    80% {
-        -webkit-transform: rotate3d(0, 0, 1, -5deg);
-        transform: rotate3d(0, 0, 1, -5deg);
+@keyframes slideInRight {
+    0% {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+        visibility: visible;
     }
     100% {
-        -webkit-transform: rotate3d(0, 0, 1, 0deg);
-        transform: rotate3d(0, 0, 1, 0deg);
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
     }
 }
-×
