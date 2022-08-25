@@ -36,10 +36,8 @@ Route::middleware('auth')->group(function () {
         Route::GET('/quote/{id}/edit', [QuoteController::class, 'edit'])->name('quote.edit');
         Route::POST('/quote/{id}/edit', [QuoteController::class, 'update'])->name('quote.update');
 
-        Route::POST('/quote/{id}/delete', [QuoteController::class, 'destroy'])->name('quote.delete');
+        Route::POST('/quote/{id}/delete', [QuoteController::class, 'changeStatus'])->name('quote.status.change');
     });
 });
-
-
 
 require __DIR__.'/auth.php';
