@@ -8,6 +8,13 @@
     src: url("public/fonts/designer.otf");
 }
 
+td, th {
+    width: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .slideInRight {
     -webkit-animation-name: slideInRight;
     animation-name: slideInRight;
