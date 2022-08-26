@@ -27,11 +27,6 @@ class QuoteController extends Controller
         $quote->quote = $request->input('quote');
         $quote->author = $request->input('author');
 
-//        if(User::verifyAdmin())
-//        {
-//            $quote->save();
-//        }
-
         $quote->save();
 
         return redirect()->back();
@@ -40,12 +35,6 @@ class QuoteController extends Controller
     public function edit($id)
     {
         $quote = Quote::find($id);
-
-//        if(User::verifyAdmin())
-//        {
-//            $flag = "edit";
-//            return view('admin.upsert-quote')->with(['flag' => $flag, 'quote' => $quote]);
-//        }
 
         $flag = "edit";
         return view('admin.upsert-quote')->with(['flag' => $flag, 'quote' => $quote]);
@@ -59,31 +48,12 @@ class QuoteController extends Controller
         $quote->author = $request->input('author');
         $quote->save();
 
-//        if(User::verifyAdmin())
-//        {
-//            Quote::where('id', $id)->update($request->all());
-//        }
-
         return redirect()->route('quotes.all.show');
     }
 
-    public function changeStatus(QuoteRequest $request, $id)
+    public function changeStatus($id)
     {
         $quote = Quote::find($id);
-
-//        if(User::verifyAdmin())
-//        {
-//            if($quote->status == "active")
-//            {
-//                $quote->status = "inactive";
-//            }
-//            else
-//            {
-//                $quote->status = "active";
-//            }
-//
-//            $quote->save();
-//        }
 
         if($quote->status == "active")
         {
