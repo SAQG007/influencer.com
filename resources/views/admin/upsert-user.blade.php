@@ -66,10 +66,10 @@
 
                             @foreach($roles as $role)
                                 @if($flag == "create")
-                                    <option value="{{ $role->id }}" >{{ $role->name }}</option>
+                                    <option value="{{ $role->id }}">{{ $role->name }}</option>
                                 @else
                                     @if($role->name != $user->roles->first()->name)
-                                        <option value="{{ $role->id }}" >{{ $role->name }}</option>
+                                        <option value="{{ $role->id }}">{{ $role->name }}</option>
                                     @endif
                                 @endif
                             @endforeach
@@ -105,7 +105,8 @@
                     </button>
                 </div>
                 <div class="col">
-                    <button class="btn btn-danger active" type="reset">
+                    <button id="clearBtn" type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#clearFormModal">
                         @if($flag == "create")
                             Clear
                         @else
@@ -114,6 +115,7 @@
                     </button>
                 </div>
             </div>
+            @include('layouts.modals.clear-modal')
         </div>
     </form>
 
