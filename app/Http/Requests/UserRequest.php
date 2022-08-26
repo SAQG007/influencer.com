@@ -2,8 +2,10 @@
 
 namespace App\Http\Requests;
 
+use http\Env\Request;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class UserRequest extends FormRequest
 {
@@ -29,7 +31,10 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required | max:30',
+            'email' => 'required | email', Rule::unique('users')->ignore($this->id),
+            'role' => 'required',
+            'password' => 'required | min:8 | confirmed',
         ];
     }
 }
