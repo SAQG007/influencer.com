@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="container" style="margin-top: 3%; width: 80%;">
+    <div class="container-fluid" style="margin-top: 3%; width: 100%;">
         <div class="row">
             <div class="col">
                 <table class="table table-striped table-hover table-bordered text-center"
