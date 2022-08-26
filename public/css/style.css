@@ -8,7 +8,7 @@
     src: url("public/fonts/designer.otf");
 }
 
-td, th {
+.overflow-control {
     width: 50px;
     overflow: hidden;
     text-overflow: ellipsis;
