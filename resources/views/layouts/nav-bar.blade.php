@@ -25,9 +25,6 @@
                                 <li><a class="dropdown-item" href="{{ route('users.all.show') }}">Subscribers List</a></li>
                                 <li><a class="dropdown-item" href="{{ route('quotes.all.show') }}">Quotes List</a></li>
                             @endif
-
-                            <li>
-
                         </ul>
                     </li>
 
