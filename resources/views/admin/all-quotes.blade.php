@@ -25,11 +25,11 @@
         @foreach($quotes as $quote)
 
             <tr>
-                <td>{{ $quote->id }}</td>
-                <td>{{ $quote->quote }}</td>
-                <td>{{ $quote->author }}</td>
-                <td>{{ ucwords($quote->status) }}</td>
-                <td>{{ $quote->created_at->format('d-M-Y') }}</td>
+                <td class="overflow-control">{{ $quote->id }}</td>
+                <td class="overflow-control">{{ $quote->quote }}</td>
+                <td class="overflow-control">{{ $quote->author }}</td>
+                <td class="overflow-control">{{ ucwords($quote->status) }}</td>
+                <td class="overflow-control">{{ $quote->created_at->format('d-M-Y') }}</td>
                 <td>
                     <div class="mr-2" style="display: inline-block">
                         <form action="{{ route('quote.edit', ['id' => $quote->id]) }}" method="GET">
