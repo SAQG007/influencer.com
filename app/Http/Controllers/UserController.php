@@ -13,4 +13,10 @@ class UserController extends Controller
 
         return view('admin.all-users')->with(['users' => $users]);
     }
+
+    public function create()
+    {
+        $flag = "create";
+        return view('admin.add-new-user')->with(['flag' => $flag]);
+    }
 }
