@@ -1,7 +1,11 @@
 @extends('layouts.master')
 
 @section('title')
-    <title>Add New Quote</title>
+    @if($flag == "create")
+        <title>Add New Quote</title>
+    @else
+        <title>Update Quote</title>
+    @endif
 @endsection
 
 @section('content')
