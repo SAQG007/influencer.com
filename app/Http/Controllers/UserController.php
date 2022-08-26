@@ -60,4 +60,22 @@ class UserController extends Controller
 
         return redirect()->route('users.all.show');
     }
+
+    public function changeStatus($id)
+    {
+        $user = User::find($id);
+
+        if($user->status == "active")
+        {
+            $user->status = "inactive";
+        }
+        else
+        {
+            $user->status = "active";
+        }
+
+        $user->save();
+
+        return redirect()->back();
+    }
 }
