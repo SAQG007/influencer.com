@@ -25,17 +25,23 @@
         @foreach($quotes as $quote)
 
             <tr>
-                <td style="width: 20px">{{ $quote->id }}</td>
-                <td style="width: 50px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ $quote->quote }}</td>
-                <td style="width: 50px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ $quote->author }}</td>
-                <td style="width: 50px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ ucwords($quote->status) }}</td>
-                <td style="width: 50px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ $quote->created_at->format('d-M-Y') }}</td>
+                <td>{{ $quote->id }}</td>
+                <td>{{ $quote->quote }}</td>
+                <td>{{ $quote->author }}</td>
+                <td>{{ ucwords($quote->status) }}</td>
+                <td>{{ $quote->created_at->format('d-M-Y') }}</td>
                 <td>
                     <div class="mr-2" style="display: inline-block">
-                        @include('buttons.edit-button')
+                        <form action="{{ route('quote.edit', ['id' => $quote->id]) }}" method="GET">
+                            @csrf
+                            @include('buttons.edit-button')
+                        </form>
                     </div>
                     <div style="display: inline-block">
-                        @include('buttons.status-button')
+                        <form action="{{ route('quote.status.change', ['id' => $quote->id]) }}" method="POST">
+                            @csrf
+                            @include('buttons.status-button', ['status' => $quote->status])
+                        </form>
                     </div>
                 </td>
             </tr>
