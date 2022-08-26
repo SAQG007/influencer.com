@@ -25,28 +25,30 @@
 
         @foreach($users as $user)
 
-            <tr>
-                <td class="overflow-control">{{ $user->id }}</td>
-                <td class="overflow-control">{{ $user->name }}</td>
-                <td class="overflow-control">{{ $user->email }}</td>
-                <td class="overflow-control">{{ $user->roles[0]->name }}</td>
-                <td class="overflow-control">{{ ucwords($user->status) }}</td>
-                <td class="overflow-control">{{ $user->created_at->format('d-M-Y') }}</td>
-                <td>
-                    <div class="mr-2" style="display: inline-block">
-                        <form action="{{ route('user.edit', ['id' => $user->id]) }}" method="GET">
-                            @csrf
-                            @include('buttons.edit-button')
-                        </form>
-                    </div>
-                    <div style="display: inline-block">
-                        <form action="{{ route('user.status.change', ['id' => $user->id]) }}" method="POST">
-                            @csrf
-                            @include('buttons.status-button', ['status' => $user->status])
-                        </form>
-                    </div>
-                </td>
-            </tr>
+            @if(Auth::id() != $user->id)
+                <tr>
+                    <td class="overflow-control">{{ $user->id }}</td>
+                    <td class="overflow-control">{{ $user->name }}</td>
+                    <td class="overflow-control">{{ $user->email }}</td>
+                    <td class="overflow-control">{{ $user->roles[0]->name }}</td>
+                    <td class="overflow-control">{{ ucwords($user->status) }}</td>
+                    <td class="overflow-control">{{ $user->created_at->format('d-M-Y') }}</td>
+                    <td>
+                        <div class="mr-2" style="display: inline-block">
+                            <form action="{{ route('user.edit', ['id' => $user->id]) }}" method="GET">
+                                @csrf
+                                @include('buttons.edit-button')
+                            </form>
+                        </div>
+                        <div style="display: inline-block">
+                            <form action="{{ route('user.status.change', ['id' => $user->id]) }}" method="POST">
+                                @csrf
+                                @include('buttons.status-button', ['status' => $user->status])
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            @endif
 
         @endforeach
 
