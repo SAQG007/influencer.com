@@ -21,6 +21,10 @@
 
         >
             @csrf
+
+            @include('admin.form-validations', ['fieldName' => 'quote'])
+            @include('admin.form-validations', ['fieldName' => 'author'])
+
             <div class="form-floating mb-3">
                 <textarea class="form-control" id="floatingTextarea" name="quote"
                           placeholder="Add your quote here">@if($flag == "edit"){{ $quote->quote }}@endif</textarea>

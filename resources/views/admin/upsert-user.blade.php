@@ -19,6 +19,11 @@
     >
         @csrf
         <div class="container mt-8 mb-4">
+            @include('admin.form-validations', ['fieldName' => 'name'])
+            @include('admin.form-validations', ['fieldName' => 'email'])
+            @include('admin.form-validations', ['fieldName' => 'role'])
+            @include('admin.form-validations', ['fieldName' => 'password'])
+            @include('admin.form-validations', ['fieldName' => 'password_confirmation'])
             <div class="row">
                 <div class="input-group mb-3">
                     <input aria-describedby="basic-addon1" aria-label="Username" class="form-control" name="name"
