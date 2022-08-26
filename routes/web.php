@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,16 @@ Route::middleware('auth')->group(function () {
         Route::POST('/quote/{id}/edit', [QuoteController::class, 'update'])->name('quote.update');
 
         Route::POST('/quote/{id}/delete', [QuoteController::class, 'changeStatus'])->name('quote.status.change');
+
+        Route::GET('/users', [UserController::class, 'index'])->name('users.all.show');
+
+        Route::GET('/add/user', [UserController::class, 'create'])->name('user.create');
+        Route::POST('/add/user', [UserController::class, 'store'])->name('user.store');
+
+        Route::GET('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+        Route::POST('/user/{id}/edit', [UserController::class, 'update'])->name('user.update');
+
+        Route::POST('/user/{id}/delete', [UserController::class, 'changeStatus'])->name('user.status.change');
     });
 });
 
