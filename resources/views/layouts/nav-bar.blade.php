@@ -22,7 +22,7 @@
 
                             @if(Auth::user()->hasRole("Admin"))
                                 <li><a class="dropdown-item" href="#">Add New User</a></li>
-                                <li><a class="dropdown-item" href="#">Subscribers List</a></li>
+                                <li><a class="dropdown-item" href="{{ route('users.all.show') }}">Subscribers List</a></li>
                                 <li><a class="dropdown-item" href="{{ route('quotes.all.show') }}">Quotes List</a></li>
                             @endif
 
