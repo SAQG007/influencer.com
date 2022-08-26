@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
+<nav class="navbar navbar-expand-lg mb-4" style="background-color: #e3f2fd;">
     <div class="container-fluid">
         <a class="navbar-brand swing" style="font-family: app_name_font" href="{{ route('home') }}">
             <img src="{{ asset('icons/motivation-icon.png') }}" width="40px" height="40px">
@@ -21,10 +21,12 @@
                             <li><a class="dropdown-item" href="#">Another action</a></li>
 
                             @if(Auth::user()->hasRole("Admin"))
-                                <li><a class="dropdown-item" href="#">Add New User</a></li>
+                                <li><a class="dropdown-item" href="{{ route('user.create') }}">Add New User</a></li>
                                 <li><a class="dropdown-item" href="{{ route('users.all.show') }}">Subscribers List</a></li>
                                 <li><a class="dropdown-item" href="{{ route('quotes.all.show') }}">Quotes List</a></li>
                             @endif
+
+                            <li>
 
                         </ul>
                     </li>
@@ -68,6 +70,11 @@
                 <div class="text-white" style="margin-left: 1%; margin-right: 1%">
                     <a class="text-muted" href="{{ route('register') }}">Register</a>
                 </div>
+            @else
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button class="btn btn-outline-primary" type="submit">Logout</button>
+                </form>
             @endif
 
         </div>
