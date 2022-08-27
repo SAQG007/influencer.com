@@ -24,6 +24,7 @@
 
             @include('admin.form-validations', ['fieldName' => 'quote'])
             @include('admin.form-validations', ['fieldName' => 'author'])
+            @include('admin.form-validations', ['fieldName' => 'language'])
 
             <div class="form-floating mb-3">
                 <textarea class="form-control" id="floatingTextarea" name="quote"
@@ -40,6 +41,17 @@
                 >
                 <label for="floatingInput">Author (optional)</label>
             </div>
+
+            <div class="row mt-3">
+                <h5>Quote Language</h5>
+                <div class="input-group mb-3 inline" style="display: inline-block">
+                    <input type="radio" name="language" value="en" @if($flag == "edit" && $quote->language == "en") checked @endif> English
+                </div>
+                <div class="input-group mb-3 inline" style="display: inline-block">
+                    <input type="radio" name="language" value="ur" @if($flag == "edit" && $quote->language == "ur") checked @endif> Urdu
+                </div>
+            </div>
+
             <button type="submit" class="btn btn-primary">
 
                 @if($flag == "create")
