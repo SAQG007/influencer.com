@@ -29,7 +29,7 @@ class QuoteRequest extends FormRequest
     public function rules()
     {
         return [
-            'quote' => 'required | max:100',
+            'quote' => 'required | max:500',
             'author' => 'max:50',
             'language' => 'required',
         ];
