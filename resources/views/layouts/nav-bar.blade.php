@@ -8,56 +8,43 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="width: 200px">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link" href="#">Link</a>--}}
-{{--                </li>--}}
                 @if(Auth::check())
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('user.edit', ['id' => Auth::id()]) }}">Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="{{ route('user.edit', ['id' => Auth::id()]) }}">{{ __('messages.edit_profile') }}</a></li>
 
                             @if(Auth::user()->hasRole("Admin"))
-                                <li><a class="dropdown-item" href="{{ route('user.create') }}">Add New User</a></li>
-                                <li><a class="dropdown-item" href="{{ route('users.all.show') }}">Subscribers List</a></li>
-                                <li><a class="dropdown-item" href="{{ route('quotes.all.show') }}">Quotes List</a></li>
+                                <li><a class="dropdown-item" href="{{ route('user.create') }}">{{ __('messages.add_new_user') }}</a></li>
+                                <li><a class="dropdown-item" href="{{ route('users.all.show') }}">{{ __('messages.subscribers_list') }}</a></li>
+                                <li><a class="dropdown-item" href="{{ route('quotes.all.show') }}">{{ __('messages.quotes_list') }}</a></li>
+                                <li><a class="dropdown-item" aria-current="page" href="{{ route('quote.create') }}">{{ __('messages.add_new_quote') }}</a></li>
                             @endif
                         </ul>
                     </li>
-
-                    @if(Auth::user()->hasRole("Admin"))
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{ route('quote.create') }}">Add New Quote</a>
-                        </li>
-                    @endif
                 @endif
 
+                <div>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown changeLang">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ __('messages.change_language') }}
+                            </a>
+                            <ul class="dropdown-menu">
+                                @if(App::getLocale() != "ur")
+                                    <li><a class="dropdown-item" href="{{ route('lang.change', ['lang' => 'ur']) }}">Urdu</a></li>
+                                @endif
+
+                                @if(App::getLocale() != "en")
+                                    <li><a class="dropdown-item" href="{{ route('lang.change', ['lang' => 'en']) }}">English</a></li>
+                                @endif
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </ul>
-{{--            <div>--}}
-{{--                <ul class="navbar-nav me-auto mb-2 mb-lg-0">--}}
-{{--                    <li class="nav-item dropdown">--}}
-{{--                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">--}}
-{{--                            Change Language--}}
-{{--                        </a>--}}
-{{--                        <ul class="dropdown-menu">--}}
-{{--                            @if(App::getLocale() != "ur")--}}
-{{--                                <li><a class="dropdown-item" href="#">Urdu</a></li>--}}
-{{--                            @endif--}}
-
-{{--                            @if(App::getLocale() != "en")--}}
-{{--                                <li><a class="dropdown-item" href="#">English</a></li>--}}
-{{--                            @endif--}}
-{{--                        </ul>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-
-{{--            <form class="d-flex" role="search">--}}
-{{--                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">--}}
-{{--                <button class="btn btn-outline-success" type="submit">Search</button>--}}
-{{--            </form>--}}
 
             @if(!Auth::check())
                 <div class="text-white" style="margin-right: 0.5%">
