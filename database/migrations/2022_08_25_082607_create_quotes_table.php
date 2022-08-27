@@ -15,7 +15,7 @@ class CreateQuotesTable extends Migration
     {
         Schema::create('quotes', function (Blueprint $table) {
             $table->id();
-            $table->string('quote', 100);
+            $table->string('quote', 500);
             $table->string('author', 50)->nullable();
             $table->string('language', 5)->default('en');
 
