@@ -29,7 +29,7 @@ class QuoteController extends Controller
 
         $quote->save();
 
-        return redirect()->back();
+        return redirect()->route('quotes.all.show');
     }
 
     public function edit($id)
@@ -46,6 +46,7 @@ class QuoteController extends Controller
 
         $quote->quote = $request->input('quote');
         $quote->author = $request->input('author');
+        $quote->language = $request->input('language');
         $quote->save();
 
         return redirect()->route('quotes.all.show');
