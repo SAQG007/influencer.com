@@ -17,8 +17,7 @@
                             {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="{{ route('user.edit', ['id' => Auth::id()]) }}">Edit Profile</a></li>
 
                             @if(Auth::user()->hasRole("Admin"))
                                 <li><a class="dropdown-item" href="{{ route('user.create') }}">Add New User</a></li>
