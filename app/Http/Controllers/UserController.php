@@ -50,9 +50,13 @@ class UserController extends Controller
         $user = User::find($id);
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+        $user->preferred_lang = $request->input('preferred_lang');
 
-        $user->detachRole($user->roles[0]->id);
-        $user->attachRole($request->input('role'));
+        if(User::verifyAdmin())
+        {
+            $user->detachRole($user->roles[0]->id);
+            $user->attachRole($request->input('role'));
+        }
 
         $user->password = Hash::make($request->input('password'));
 
