@@ -28,6 +28,15 @@ Route::GET('/', [RouteController::class, 'index'])->name('home');
 Route::GET('/dashboard', [RouteController::class, 'redirectToHome'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::GET('/add/user', [UserController::class, 'create'])->name('user.create');
+    Route::POST('/add/user', [UserController::class, 'store'])->name('user.store');
+
+    Route::GET('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+    Route::POST('/user/{id}/edit', [UserController::class, 'update'])->name('user.update');
+
+    Route::POST('/user/{id}/delete', [UserController::class, 'changeStatus'])->name('user.status.change');
+
+    // admin accessible routes
     Route::middleware('is.admin')->group(function () {
         Route::GET('/quotes', [QuoteController::class, 'index'])->name('quotes.all.show');
 
@@ -40,14 +49,6 @@ Route::middleware('auth')->group(function () {
         Route::POST('/quote/{id}/delete', [QuoteController::class, 'changeStatus'])->name('quote.status.change');
 
         Route::GET('/users', [UserController::class, 'index'])->name('users.all.show');
-
-        Route::GET('/add/user', [UserController::class, 'create'])->name('user.create');
-        Route::POST('/add/user', [UserController::class, 'store'])->name('user.store');
-
-        Route::GET('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
-        Route::POST('/user/{id}/edit', [UserController::class, 'update'])->name('user.update');
-
-        Route::POST('/user/{id}/delete', [UserController::class, 'changeStatus'])->name('user.status.change');
     });
 });
 
