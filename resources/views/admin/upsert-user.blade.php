@@ -56,6 +56,16 @@
                 </div>
             </div>
 
+            <div class="row mt-3">
+                <h5>Preferred Language</h5>
+                <div class="input-group mb-3 inline" style="display: inline-block">
+                    <input type="radio" name="preferred_lang" value="en" @if($flag == "edit" && $user->preferred_lang == "en") checked @endif> English
+                </div>
+                <div class="input-group mb-3 inline" style="display: inline-block">
+                    <input type="radio" name="preferred_lang" value="ur" @if($flag == "edit" && $user->preferred_lang == "ur") checked @endif> Urdu
+                </div>
+            </div>
+
             @if(Auth::user()->hasRole("Admin"))
                 <div class="row mt-3">
                     <div class="input-group mb-3">
