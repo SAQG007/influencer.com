@@ -16,7 +16,7 @@ class UserRequest extends FormRequest
      */
     public function authorize()
     {
-        if(Auth::user()->hasRole("Admin"))
+        if(Auth::user()->hasRole("Admin") || Auth::id() == $this->id)
         {
             return true;
         }
