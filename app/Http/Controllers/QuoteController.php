@@ -23,9 +23,9 @@ class QuoteController extends Controller
 
     public function store(QuoteRequest $request)
     {
-        $quote = new Quote();
-        $quote->quote = $request->input('quote');
-        $quote->author = $request->input('author');
+        $quote = new Quote($request->all());
+//        $quote->quote = $request->input('quote');
+//        $quote->author = $request->input('author');
 
         $quote->save();
 
