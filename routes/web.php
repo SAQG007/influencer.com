@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,8 @@ use App\Http\Controllers\UserController;
 
 Route::GET('/', [RouteController::class, 'index'])->name('home');
 Route::GET('/dashboard', [RouteController::class, 'redirectToHome'])->name('dashboard');
+
+Route::GET('/change/lang/{lang}', [LangController::class, 'change'])->name('lang.change');
 
 Route::middleware('auth')->group(function () {
     Route::GET('/add/user', [UserController::class, 'create'])->name('user.create');
