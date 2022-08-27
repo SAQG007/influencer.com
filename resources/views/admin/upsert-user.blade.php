@@ -10,7 +10,7 @@
 
 @section('content')
 
-    <form @if($flag == "create")
+    <form style="direction: ltr" @if($flag == "create")
               action="{{ route('user.store') }}"
           @else
               action="{{ route('user.update', [$user->id]) }}"
