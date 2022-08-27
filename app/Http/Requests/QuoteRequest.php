@@ -31,6 +31,7 @@ class QuoteRequest extends FormRequest
         return [
             'quote' => 'required | max:100',
             'author' => 'max:50',
+            'language' => 'required',
         ];
     }
 }
