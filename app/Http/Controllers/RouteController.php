@@ -8,11 +8,12 @@ class RouteController extends Controller
 {
     public function index()
     {
-        return view('influencer.index');
+//        return view('influencer.index');
+        return redirect('/register');
     }
 
     public function redirectToHome()
     {
-        return redirect()->route('home');
+        return view('influencer.index');
     }
 }
