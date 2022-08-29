@@ -10,9 +10,9 @@
     </div>
 </div>
 
-@component('mail::button', ['url' => '', 'color' => 'success'])
-    Add to favorites
-@endcomponent
+{{--@component('mail::button', ['url' => '', 'color' => 'success'])--}}
+{{--    Add to favorites--}}
+{{--@endcomponent--}}
 
 Thanks,<br>
 {{ config('app.name') }}
