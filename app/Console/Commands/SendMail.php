@@ -43,10 +43,10 @@ class SendMail extends Command
     {
         $quotesCount = Quote::count();
         $users = User::where('status', '<>', 'inactive')->get();
+        $quote = Quote::find(rand() % $quotesCount);
 
         foreach($users as $user)
         {
-            $quote = Quote::where('language', $user->preferred_lang)->where('status', 'active')->first();
             Mail::to($user->email)->send(new DailyQuote($quote));
         }
     }
