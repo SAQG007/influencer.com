@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('preferred_lang', 5)->default('en');
+//            $table->string('preferred_lang', 5)->default('en');
 
             // status can be active or inactive
             $table->string('status', 15)->default('active');
