@@ -1,10 +1,13 @@
 <x-guest-layout>
 
-    @isset($flag)
-        {{ $flag }}
-    @endisset
-
     <x-auth-card>
+        @if(Session('flag'))
+            <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                <strong>Success!</strong> {{ Session('flag') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endisset
+
         <x-slot name="logo">
 {{--            <a href="/">--}}
 {{--                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />--}}
