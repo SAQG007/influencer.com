@@ -49,7 +49,7 @@ class RegisteredUserController extends Controller
 
         $user->attachRole(2);
 
-        return redirect()->route('login');
+        return redirect()->route('login')->with(['flag' => 'Successful Registration!']);
 
 //        Auth::login($user);
 
